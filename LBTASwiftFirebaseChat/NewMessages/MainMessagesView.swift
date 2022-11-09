@@ -193,20 +193,6 @@ struct MainMessagesView: View {
     }
 }
 
-struct ChatLogView: View {
-    
-    let chatUser: ChatUser?
-    
-    var body: some View {
-        ScrollView {
-            ForEach(0..<10) { num in
-                Text("Fake Chat For Now")
-            }
-        }.navigationTitle(chatUser?.email ?? "")
-            .navigationBarTitleDisplayMode(.inline) 
-    }
-}
-
 struct NewMessagesView_Previews: PreviewProvider {
     static var previews: some View {
         MainMessagesView()
