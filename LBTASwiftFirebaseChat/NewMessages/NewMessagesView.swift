@@ -43,7 +43,7 @@ class MainMessagesViewModel: ObservableObject {
                 
                 self.chatUser = .init(data: data)
             }
-    } 
+    }
     
     @Published var isUserCurrentlyLoggedOut = false
     
@@ -111,6 +111,30 @@ struct NewMessagesView: View {
         }
     }
     
+    @State var shouldShowNewMessageScreen = false
+
+    private var newMessageButton: some View {
+        Button {
+            shouldShowNewMessageScreen.toggle()
+        } label: {
+            HStack {
+                Spacer()
+                Text("+ New Messages")
+                    .font(.system(size: 16, weight: .bold))
+                Spacer()
+            }
+            .foregroundColor(.white)
+            .padding(.vertical)
+                .background(Color.blue)
+                .cornerRadius(32)
+                .padding(.horizontal)
+                .shadow(radius: 5)
+        }
+        .fullScreenCover(isPresented: $shouldShowNewMessageScreen) {
+            CreateNewMessageView()
+        }
+    }
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -152,25 +176,6 @@ private var newMessageView: some View {
                     .padding(.vertical, 8)
             }.padding(.horizontal)
         }.padding(.bottom, 50)
-    }
-}
-
-private var newMessageButton: some View {
-    Button {
-        
-    } label: {
-        HStack {
-            Spacer()
-            Text("+ New Messages")
-                .font(.system(size: 16, weight: .bold))
-            Spacer()
-        }
-        .foregroundColor(.white)
-        .padding(.vertical)
-            .background(Color.blue)
-            .cornerRadius(32)
-            .padding(.horizontal)
-            .shadow(radius: 5)
     }
 }
 
