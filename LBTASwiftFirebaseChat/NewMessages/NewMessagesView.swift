@@ -6,18 +6,71 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
+
+struct ChatUser {
+    let uid, email, profileImageUrl: String
+}
+
+class MainMessagesViewModel: ObservableObject {
+    
+    @Published var errorMessage = ""
+    @Published var chatUser: ChatUser?
+    
+    init() {
+        fetchCurrentUser()
+    }
+    
+    private func fetchCurrentUser() {
+        self.errorMessage = "Fetching current user"
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {
+            self.errorMessage = "Could not find firebase uid"
+            return
+        }
+        
+        FirebaseManager.shared.firestore.collection("users")
+            .document(uid).getDocument { snapshot, error in
+                if let error = error {
+                    print("Failed to fetch current user: ", error)
+                    self.errorMessage = "Failed to fetch current user"
+                    return
+                }
+                
+                guard let data = snapshot?.data() else { self.errorMessage = "Failed to fetch current user"
+                    return
+                }
+                
+                let uid = data["uid"] as? String ?? ""
+                let email = data["email"] as? String ?? ""
+                let profileImageUrl = data["profileImageUrl"] as? String ?? ""
+                self.chatUser = ChatUser(uid: uid, email: email, profileImageUrl: profileImageUrl)
+                
+                self.errorMessage = "\(data.description)"
+                
+            }
+    }
+}
 
 struct NewMessagesView: View {
     
     @State var shouldShowLogoutOptions = false
+    @ObservedObject private var vm = MainMessagesViewModel()
     
     private var customNavbar: some View {
         HStack(spacing: 16) {
-            Image(systemName: "person.fill")
-                .font(.system(size: 34, weight: .heavy))
+            WebImage(url: URL(string: vm.chatUser?.profileImageUrl ?? ""))
+                .resizable()
+                .scaledToFill()
+                .frame(width: 50, height: 50)
+                .clipped()
+                .cornerRadius(50)
+                .overlay(RoundedRectangle(cornerRadius: 50)
+                    .stroke(Color(.label), lineWidth: 1)
+                )
             
             VStack(alignment: .leading, spacing: 4) {
-                Text("USERNAME")
+                let username = vm.chatUser?.email.components(separatedBy: "@")[0] ?? ""
+                Text(username)
                     .font(.system(size: 24, weight: .bold))
                 
                 HStack {
@@ -68,7 +121,7 @@ private var newMessageView: some View {
                 HStack(spacing: 16) {
                     Image(systemName: "person.fill")
                         .font(.system(size: 32))
-                        .padding()
+                        .padding(.all, 8)
                         .overlay(
                             RoundedRectangle(cornerRadius: 32)
                                 .stroke(Color(.label), lineWidth: 1)
@@ -85,7 +138,7 @@ private var newMessageView: some View {
                     Spacer()
                     Text("22d")
                         .font(.system(size: 14, weight: .semibold))
-                }
+                }.padding(.top, 8)
                 Divider()
                     .padding(.vertical, 8)
             }.padding(.horizontal)
