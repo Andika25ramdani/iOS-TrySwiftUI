@@ -8,50 +8,28 @@
 import SwiftUI
 import FirebaseFirestore
 
-struct FirebaseConstants {
-    static let fromId = "fromId"
-    static let toId = "toId"
-    static let text = "text"
-    static let timestamp = "timestamp"
-    static let profileImageUrl = "profileImageUrl"
-    static let email = "email"
-}
-
-struct ChatMessage: Identifiable {
-    
-    var id: String { documentId }
-    
-    let documentId: String
-    let fromId, toId, text: String
-    
-    init(documentId: String, data: [String: Any]) {
-        self.documentId = documentId
-        self.fromId = data[FirebaseConstants.fromId] as? String ?? ""
-        self.toId = data[FirebaseConstants.toId] as? String ?? ""
-        self.text = data[FirebaseConstants.text] as? String ?? ""
-    }
-}
-
 class ChatLogViewModel: ObservableObject {
     
     @Published var chatText = ""
     @Published var errorMessage = ""
     @Published var chatMessages = [ChatMessage]()
     @Published var count = 0
+    var firestoreListener: ListenerRegistration?
     
-    let chatUser: ChatUser?
+    var chatUser: ChatUser?
     
     init(chatUser: ChatUser?) {
         self.chatUser = chatUser
         fetchMessages()
     }
     
-    private func fetchMessages() {
+    func fetchMessages() {
         guard let fromId = FirebaseManager.shared.auth.currentUser?.uid else { return }
         guard let toId = chatUser?.uid else { return }
-        
-        FirebaseManager.shared.firestore
-            .collection("messages")
+        firestoreListener?.remove()
+        chatMessages.removeAll()
+        firestoreListener = FirebaseManager.shared.firestore
+            .collection(FirebaseConstants.messages)
             .document(fromId)
             .collection(toId)
             .order(by: FirebaseConstants.timestamp)
@@ -64,9 +42,12 @@ class ChatLogViewModel: ObservableObject {
                  
                 querySnapshot?.documentChanges.forEach({ change in
                     if change.type == .added {
-                        let data = change.document.data()
-                        let docId = change.document.documentID
-                        self.chatMessages.append(.init(documentId: docId, data: data))
+                        do {
+                            let data = try change.document.data(as: ChatMessage.self)
+                                self.chatMessages.append(data)
+                        } catch {
+                            print(error)
+                        }
                     }
                 })
                 
@@ -82,7 +63,7 @@ class ChatLogViewModel: ObservableObject {
         guard let toId = chatUser?.uid else { return }
         
         let document = FirebaseManager.shared.firestore
-            .collection("messages")
+            .collection(FirebaseConstants.messages)
             .document(fromId)
             .collection(toId)
             .document()
@@ -97,7 +78,7 @@ class ChatLogViewModel: ObservableObject {
         }
         
         let recipientMessageDocument = FirebaseManager.shared.firestore
-            .collection("messages")
+            .collection(FirebaseConstants.messages)
             .document(toId)
             .collection(fromId)
             .document()
@@ -121,9 +102,9 @@ class ChatLogViewModel: ObservableObject {
         guard let toId = self.chatUser?.uid else { return }
         
         let document =  FirebaseManager.shared.firestore
-            .collection("recent_messages")
+            .collection(FirebaseConstants.recentMessages)
             .document(uid)
-            .collection("messages")
+            .collection(FirebaseConstants.messages)
             .document(toId)
         
         let data = [
@@ -145,14 +126,49 @@ class ChatLogViewModel: ObservableObject {
     }
 }
 
+struct MessageView: View {
+    
+    let message: ChatMessage
+    
+    var body: some View {
+        VStack {
+            if message.fromId == FirebaseManager.shared.auth.currentUser?.uid {
+                HStack {
+                    Spacer()
+                    HStack {
+                        Text(message.text)
+                            .foregroundColor(.white)
+                    }
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(8)
+                }
+            } else {
+                HStack {
+                    HStack {
+                        Text(message.text)
+                            .foregroundColor(Color(.label))
+                    }
+                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(8)
+                    Spacer()
+                }
+            }
+        }
+        .padding(.horizontal)
+        .padding(.top, 8)
+    }
+}
+
 struct ChatLogView: View {
     
-    let chatUser: ChatUser?
-    
-    init(chatUser: ChatUser?) {
-        self.chatUser = chatUser
-        self.vm = .init(chatUser: chatUser)
-    }
+//    let chatUser: ChatUser?
+//
+//    init(chatUser: ChatUser?) {
+//        self.chatUser = chatUser
+//        self.vm = .init(chatUser: chatUser)
+//    }
 
     @ObservedObject var vm: ChatLogViewModel
     
@@ -215,45 +231,12 @@ struct ChatLogView: View {
             messagesView
             Text(vm.errorMessage)
         }
-        .navigationTitle(chatUser?.email ?? "")
-            .navigationBarTitleDisplayMode(.inline)
-    }
-}
-
-struct MessageView: View {
-    
-    let message: ChatMessage
-    
-    var body: some View {
-        VStack {
-            if message.fromId == FirebaseManager.shared.auth.currentUser?.uid {
-                HStack {
-                    Spacer()
-                    HStack {
-                        Text(message.text)
-                            .foregroundColor(.white)
-                    }
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(8)
-                }
-            } else {
-                HStack {
-                    HStack {
-                        Text(message.text)
-                            .foregroundColor(Color(.label))
-                    }
-                    .padding()
-                    .background(Color.white)
-                    .cornerRadius(8)
-                    Spacer()
-                }
-            }
+        .navigationTitle(vm.chatUser?.email ?? "")
+        .navigationBarTitleDisplayMode(.inline)
+        .onDisappear {
+            vm.firestoreListener?.remove()
         }
-        .padding(.horizontal)
-        .padding(.top, 8)
     }
-    
 }
 
 struct ChatLogView_Previews: PreviewProvider {
