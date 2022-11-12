@@ -1,5 +1,5 @@
 //
-//  ConversationViewController.swift
+//  ViewController.swift
 //  Swift FCA Messenger
 //
 //  Created by dev22 jumpa on 12/11/22.
@@ -13,7 +13,5 @@ class ConversationViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-
 }
 
