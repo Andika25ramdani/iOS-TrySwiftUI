@@ -19,6 +19,7 @@
 		60F7A3A1291F696100A7E4E3 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F7A3A0291F696100A7E4E3 /* NewConversationViewController.swift */; };
 		60F7A3A3291F697500A7E4E3 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F7A3A2291F697500A7E4E3 /* VideoPlayerViewController.swift */; };
 		60F7A3A5291F699900A7E4E3 /* PhotoViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F7A3A4291F699900A7E4E3 /* PhotoViewerViewController.swift */; };
+		60F7A3A7291F72EF00A7E4E3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F7A3A6291F72EF00A7E4E3 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		60F7A3A0291F696100A7E4E3 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		60F7A3A2291F697500A7E4E3 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		60F7A3A4291F699900A7E4E3 /* PhotoViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewerViewController.swift; sourceTree = "<group>"; };
+		60F7A3A6291F72EF00A7E4E3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			children = (
 				60E1D09E291F63790023C361 /* AppDelegate.swift */,
 				60E1D0A0291F63790023C361 /* SceneDelegate.swift */,
+				60F7A3A6291F72EF00A7E4E3 /* Extensions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 				60F7A39B291F691D00A7E4E3 /* LoginViewController.swift in Sources */,
 				60F7A39D291F692B00A7E4E3 /* RegisterViewController.swift in Sources */,
 				60E1D0A3291F63790023C361 /* ConversationViewController.swift in Sources */,
+				60F7A3A7291F72EF00A7E4E3 /* Extensions.swift in Sources */,
 				60F7A3A3291F697500A7E4E3 /* VideoPlayerViewController.swift in Sources */,
 				60E1D09F291F63790023C361 /* AppDelegate.swift in Sources */,
 				60E1D0A1291F63790023C361 /* SceneDelegate.swift in Sources */,
