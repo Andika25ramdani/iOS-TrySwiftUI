@@ -10,10 +10,16 @@
 		157A55418A31E03C2CED94A8 /* Pods_Swift_FCA_Messenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52064112760733522F20B604 /* Pods_Swift_FCA_Messenger.framework */; };
 		60E1D06A291F44430023C361 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E1D069291F44430023C361 /* AppDelegate.swift */; };
 		60E1D06C291F44430023C361 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E1D06B291F44430023C361 /* SceneDelegate.swift */; };
-		60E1D06E291F44430023C361 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E1D06D291F44430023C361 /* ViewController.swift */; };
 		60E1D071291F44430023C361 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60E1D06F291F44430023C361 /* Main.storyboard */; };
 		60E1D073291F44460023C361 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60E1D072291F44460023C361 /* Assets.xcassets */; };
 		60E1D076291F44460023C361 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60E1D074291F44460023C361 /* LaunchScreen.storyboard */; };
+		60E1D084291F4A5E0023C361 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E1D083291F4A5E0023C361 /* ConversationViewController.swift */; };
+		60E1D086291F4C4F0023C361 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E1D085291F4C4F0023C361 /* LoginViewController.swift */; };
+		60E1D088291F4C750023C361 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E1D087291F4C750023C361 /* RegisterViewController.swift */; };
+		60E1D08A291F4C8B0023C361 /* PhotoViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E1D089291F4C8B0023C361 /* PhotoViewerViewController.swift */; };
+		60E1D08C291F4C9A0023C361 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E1D08B291F4C9A0023C361 /* VideoPlayerViewController.swift */; };
+		60E1D08E291F4CAE0023C361 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E1D08D291F4CAE0023C361 /* NewConversationViewController.swift */; };
+		60E1D090291F4CBB0023C361 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E1D08F291F4CBB0023C361 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,11 +28,17 @@
 		60E1D066291F44430023C361 /* Swift FCA Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift FCA Messenger.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60E1D069291F44430023C361 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60E1D06B291F44430023C361 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		60E1D06D291F44430023C361 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		60E1D070291F44430023C361 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		60E1D072291F44460023C361 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		60E1D075291F44460023C361 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		60E1D077291F44460023C361 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60E1D083291F4A5E0023C361 /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
+		60E1D085291F4C4F0023C361 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		60E1D087291F4C750023C361 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		60E1D089291F4C8B0023C361 /* PhotoViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewerViewController.swift; sourceTree = "<group>"; };
+		60E1D08B291F4C9A0023C361 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
+		60E1D08D291F4CAE0023C361 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
+		60E1D08F291F4CBB0023C361 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C45C1E8C1AEDAE6551C52C2E /* Pods-Swift FCA Messenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift FCA Messenger.release.xcconfig"; path = "Target Support Files/Pods-Swift FCA Messenger/Pods-Swift FCA Messenger.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,15 +83,69 @@
 		60E1D068291F44430023C361 /* Swift FCA Messenger */ = {
 			isa = PBXGroup;
 			children = (
-				60E1D069291F44430023C361 /* AppDelegate.swift */,
-				60E1D06B291F44430023C361 /* SceneDelegate.swift */,
-				60E1D06D291F44430023C361 /* ViewController.swift */,
-				60E1D06F291F44430023C361 /* Main.storyboard */,
-				60E1D072291F44460023C361 /* Assets.xcassets */,
-				60E1D074291F44460023C361 /* LaunchScreen.storyboard */,
+				60E1D081291F48EB0023C361 /* Models */,
+				60E1D080291F48C80023C361 /* Controllers */,
+				60E1D07F291F48AF0023C361 /* Views */,
+				60E1D07E291F48A90023C361 /* ViewModels */,
+				60E1D07D291F489C0023C361 /* Resources */,
 				60E1D077291F44460023C361 /* Info.plist */,
 			);
 			path = "Swift FCA Messenger";
+			sourceTree = "<group>";
+		};
+		60E1D07D291F489C0023C361 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				60E1D069291F44430023C361 /* AppDelegate.swift */,
+				60E1D06B291F44430023C361 /* SceneDelegate.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		60E1D07E291F48A90023C361 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		60E1D07F291F48AF0023C361 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				60E1D082291F498F0023C361 /* Storyboards */,
+				60E1D072291F44460023C361 /* Assets.xcassets */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		60E1D080291F48C80023C361 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				60E1D083291F4A5E0023C361 /* ConversationViewController.swift */,
+				60E1D085291F4C4F0023C361 /* LoginViewController.swift */,
+				60E1D087291F4C750023C361 /* RegisterViewController.swift */,
+				60E1D089291F4C8B0023C361 /* PhotoViewerViewController.swift */,
+				60E1D08B291F4C9A0023C361 /* VideoPlayerViewController.swift */,
+				60E1D08D291F4CAE0023C361 /* NewConversationViewController.swift */,
+				60E1D08F291F4CBB0023C361 /* ProfileViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		60E1D081291F48EB0023C361 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		60E1D082291F498F0023C361 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				60E1D06F291F44430023C361 /* Main.storyboard */,
+				60E1D074291F44460023C361 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		764EFFEC09CF6858679598AD /* Pods */ = {
@@ -88,7 +154,6 @@
 				018EE06216D3A17E9CF1BF63 /* Pods-Swift FCA Messenger.debug.xcconfig */,
 				C45C1E8C1AEDAE6551C52C2E /* Pods-Swift FCA Messenger.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -189,9 +254,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60E1D06E291F44430023C361 /* ViewController.swift in Sources */,
+				60E1D086291F4C4F0023C361 /* LoginViewController.swift in Sources */,
+				60E1D088291F4C750023C361 /* RegisterViewController.swift in Sources */,
+				60E1D08E291F4CAE0023C361 /* NewConversationViewController.swift in Sources */,
 				60E1D06A291F44430023C361 /* AppDelegate.swift in Sources */,
+				60E1D08C291F4C9A0023C361 /* VideoPlayerViewController.swift in Sources */,
+				60E1D084291F4A5E0023C361 /* ConversationViewController.swift in Sources */,
+				60E1D090291F4CBB0023C361 /* ProfileViewController.swift in Sources */,
 				60E1D06C291F44430023C361 /* SceneDelegate.swift in Sources */,
+				60E1D08A291F4C8B0023C361 /* PhotoViewerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,8 +416,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -374,8 +446,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
