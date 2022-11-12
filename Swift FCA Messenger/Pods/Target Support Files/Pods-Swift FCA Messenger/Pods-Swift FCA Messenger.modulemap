@@ -1,0 +1,6 @@
+framework module Pods_Swift_FCA_Messenger {
+  umbrella header "Pods-Swift FCA Messenger-umbrella.h"
+
+  export *
+  module * { export * }
+}
