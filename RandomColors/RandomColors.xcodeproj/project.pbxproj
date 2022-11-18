@@ -14,6 +14,7 @@
 		603E416B2927D6E900121A6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 603E41692927D6E900121A6D /* LaunchScreen.storyboard */; };
 		603E41732927D7FE00121A6D /* ColorsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E41722927D7FE00121A6D /* ColorsTableVC.swift */; };
 		603E41752927D95E00121A6D /* ColorsDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E41742927D95E00121A6D /* ColorsDetailVC.swift */; };
+		603E41772927EBDD00121A6D /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E41762927EBDD00121A6D /* UIColor+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		603E416C2927D6E900121A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		603E41722927D7FE00121A6D /* ColorsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsTableVC.swift; sourceTree = "<group>"; };
 		603E41742927D95E00121A6D /* ColorsDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsDetailVC.swift; sourceTree = "<group>"; };
+		603E41762927EBDD00121A6D /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				603E416C2927D6E900121A6D /* Info.plist */,
 				603E41722927D7FE00121A6D /* ColorsTableVC.swift */,
 				603E41742927D95E00121A6D /* ColorsDetailVC.swift */,
+				603E41762927EBDD00121A6D /* UIColor+Ext.swift */,
 			);
 			path = RandomColors;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			files = (
 				603E41732927D7FE00121A6D /* ColorsTableVC.swift in Sources */,
 				603E41752927D95E00121A6D /* ColorsDetailVC.swift in Sources */,
+				603E41772927EBDD00121A6D /* UIColor+Ext.swift in Sources */,
 				603E415F2927D6E800121A6D /* AppDelegate.swift in Sources */,
 				603E41612927D6E800121A6D /* SceneDelegate.swift in Sources */,
 			);
