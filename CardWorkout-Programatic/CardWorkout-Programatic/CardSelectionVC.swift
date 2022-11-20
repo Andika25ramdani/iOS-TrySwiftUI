@@ -13,11 +13,32 @@ class CardSelectionVC: UIViewController {
 	let stopButton = CWButton(backgroundColor: .systemRed, title: "Stop")
 	let resetButton = CWButton(backgroundColor: .systemGreen, title: "Reset")
 	let rulesButton = CWButton(backgroundColor: .systemBlue, title: "Rules")
+	
+	var cards = CardDeck.allValues
+	var timer: Timer!
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		view?.backgroundColor = .systemBackground
 		configureUI()
+		startTimer()
+	}
+	
+	func startTimer() {
+		timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(showRandomImage), userInfo: nil, repeats: true)
+	}
+	
+	@objc func showRandomImage() {
+		cardImageView.image = cards.randomElement() ?? UIImage(named: "AS")!
+	}
+	
+	@objc func stopTimer () {
+		timer.invalidate()
+	}
+	
+	@objc func resetTimer() {
+		stopTimer()
+		startTimer()
 	}
 	
 	func configureUI() {
@@ -42,6 +63,7 @@ class CardSelectionVC: UIViewController {
 	
 	func configureStopButton() {
 		view.addSubview(stopButton)
+		stopButton.addTarget(self, action: #selector(stopTimer), for: .touchUpInside)
 		
 		NSLayoutConstraint.activate([
 			stopButton.widthAnchor.constraint(equalToConstant: 260),
@@ -53,6 +75,7 @@ class CardSelectionVC: UIViewController {
 	
 	func configureResetButton() {
 		view.addSubview(resetButton)
+		resetButton.addTarget(self, action: #selector(resetTimer), for: .touchUpInside)
 		
 		NSLayoutConstraint.activate([
 			resetButton.widthAnchor.constraint(equalToConstant: 115),
@@ -75,6 +98,7 @@ class CardSelectionVC: UIViewController {
 	}
 	
 	@objc func presentRulesVC() {
+		stopTimer()
 		present(RulesVC(), animated: true)
 	}
 }
